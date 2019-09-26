@@ -95,7 +95,7 @@ public class Main extends javax.swing.JFrame
         MultiATP = new javax.swing.JMenuItem();
         MultiCOX = new javax.swing.JMenuItem();
         MenuOpciones = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        Resolution = new javax.swing.JMenu();
         z05 = new javax.swing.JRadioButtonMenuItem();
         z10 = new javax.swing.JRadioButtonMenuItem();
         z15 = new javax.swing.JRadioButtonMenuItem();
@@ -304,8 +304,8 @@ public class Main extends javax.swing.JFrame
 
         MenuOpciones.setText("Opciones");
 
-        jMenu2.setText("Resolucion");
-        jMenu2.setToolTipText("Es la resulución ocupada para el procesamiento y conteo, mientras mas grande mas preciso, pero necesita mas recursos");
+        Resolution.setText("Resolucion");
+        Resolution.setToolTipText("Es la resulución ocupada para el procesamiento y conteo, mientras mas grande mas preciso, pero necesita mas recursos");
 
         GrupoRes.add(z05);
         z05.setText("0.5 Mpx");
@@ -314,7 +314,7 @@ public class Main extends javax.swing.JFrame
                 z05ActionPerformed(evt);
             }
         });
-        jMenu2.add(z05);
+        Resolution.add(z05);
 
         GrupoRes.add(z10);
         z10.setText("1.0 Mpx");
@@ -323,7 +323,7 @@ public class Main extends javax.swing.JFrame
                 z10ActionPerformed(evt);
             }
         });
-        jMenu2.add(z10);
+        Resolution.add(z10);
 
         GrupoRes.add(z15);
         z15.setSelected(true);
@@ -333,7 +333,7 @@ public class Main extends javax.swing.JFrame
                 z15ActionPerformed(evt);
             }
         });
-        jMenu2.add(z15);
+        Resolution.add(z15);
 
         GrupoRes.add(z20);
         z20.setText("2.0 Mp");
@@ -342,7 +342,7 @@ public class Main extends javax.swing.JFrame
                 z20ActionPerformed(evt);
             }
         });
-        jMenu2.add(z20);
+        Resolution.add(z20);
 
         GrupoRes.add(z25);
         z25.setText("2.5 Mpx");
@@ -351,7 +351,7 @@ public class Main extends javax.swing.JFrame
                 z25ActionPerformed(evt);
             }
         });
-        jMenu2.add(z25);
+        Resolution.add(z25);
 
         GrupoRes.add(z30);
         z30.setText("3.0 Mpx");
@@ -360,7 +360,7 @@ public class Main extends javax.swing.JFrame
                 z30ActionPerformed(evt);
             }
         });
-        jMenu2.add(z30);
+        Resolution.add(z30);
 
         GrupoRes.add(z35);
         z35.setText("3.5 Mpx");
@@ -369,7 +369,7 @@ public class Main extends javax.swing.JFrame
                 z35ActionPerformed(evt);
             }
         });
-        jMenu2.add(z35);
+        Resolution.add(z35);
 
         GrupoRes.add(z50);
         z50.setText("5.0 Mpx");
@@ -378,7 +378,7 @@ public class Main extends javax.swing.JFrame
                 z50ActionPerformed(evt);
             }
         });
-        jMenu2.add(z50);
+        Resolution.add(z50);
 
         GrupoRes.add(z80);
         z80.setText("8.0 Mpx");
@@ -387,9 +387,9 @@ public class Main extends javax.swing.JFrame
                 z80ActionPerformed(evt);
             }
         });
-        jMenu2.add(z80);
+        Resolution.add(z80);
 
-        MenuOpciones.add(jMenu2);
+        MenuOpciones.add(Resolution);
 
         jMenuBar1.add(MenuOpciones);
 
@@ -566,39 +566,53 @@ public class Main extends javax.swing.JFrame
     private void GuardarProcesadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarProcesadaActionPerformed
          AbstractImage.guardar(AUXMostrando);
     }//GEN-LAST:event_GuardarProcesadaActionPerformed
-
+                                              
     private void setEnglishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setEnglishActionPerformed
-        // TODO add your handling code here:
-        //this.setTitle("Shades of Grey");
         MenuArchivo.setText("File");
-            MenuGuardar.setText("Save Image");
-                GuardarOriginal.setText("Original Image");
-                GuardarProcesada.setText("Processed Image");
             MenuAbrir.setText("Open Image");
+            MenuGuardar.setText("Save Image");
+                GuardarOriginal.setText("Original");
+                GuardarProcesada.setText("Processed");
             Salir.setText("Exit");
         MenuProcesos.setText("Processes");
+            MenuHomN.setText("Homogenize");
+        MenuOpciones.setText("Options");
+            Resolution.setText("Resolution");
         MenuAyuda.setText("Help");
             about.setText("About");
             Language.setText("Change Language");
                 setEnglish.setText("English");
-                setSpanish.setText("Spanish");     
+                setSpanish.setText("Spanish");
+        MenuAprendizaje.setText("Learning");
+            AprendeMaquina.setText("Add Database");
+            AprendeHumano.setText("Expert Guided");
+            AprendeAgregacion.setText("Learn by Aggregation");
+        MenuCargar.setText("Load");
+            CargaConocimiento.setText("Load Knowledge");
     }//GEN-LAST:event_setEnglishActionPerformed
 
     private void setSpanishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setSpanishActionPerformed
-        // TODO add your handling code here:
-        //this.setTitle("Sombras de Gris");
         MenuArchivo.setText("Archivo");
+            MenuAbrir.setText("Abrir Imagen");
             MenuGuardar.setText("Guardar Imagen");
                 GuardarOriginal.setText("Imagen Original");
                 GuardarProcesada.setText("Imagen Procesada");
-            MenuAbrir.setText("Abrir Imagen");
             Salir.setText("Salir");
         MenuProcesos.setText("Procesos");
+            MenuHomN.setText("Homogeneizar");
+        MenuOpciones.setText("Opciones");
+            Resolution.setText("Resolucion");
         MenuAyuda.setText("Ayuda");
             about.setText("Acerca de..");
             Language.setText("Cambiar Idioma");
                 setEnglish.setText("Ingles");
                 setSpanish.setText("Español");
+        MenuAprendizaje.setText("Aprendizaje");
+            AprendeMaquina.setText("Anadir Base De Datos");
+            AprendeHumano.setText("Guiado Por Experto");
+            AprendeAgregacion.setText("Aprender por Agregacion");
+        MenuCargar.setText("Cargar");
+            CargaConocimiento.setText("Cargar Conocimiento");
     }//GEN-LAST:event_setSpanishActionPerformed
 
     private void AprendeMaquinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AprendeMaquinaActionPerformed
@@ -872,10 +886,10 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JMenuItem MultiATP;
     private javax.swing.JMenuItem MultiCOX;
     private javax.swing.JMenuItem MultiNADH;
+    private javax.swing.JMenu Resolution;
     private javax.swing.JMenuItem Salir;
     private javax.swing.JMenuItem about;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

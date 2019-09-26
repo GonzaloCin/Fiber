@@ -97,7 +97,7 @@
             <Property name="text" type="java.lang.String" value="Opciones"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="jMenu2">
+            <Menu class="javax.swing.JMenu" name="Resolution">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Resolucion"/>
                 <Property name="toolTipText" type="java.lang.String" value="Es la resuluci&#xf3;n ocupada para el procesamiento y conteo, mientras mas grande mas preciso, pero necesita mas recursos"/>
