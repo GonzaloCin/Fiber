@@ -84,6 +84,43 @@ public class EstadisticaCelulas extends javax.swing.JFrame {
     public EstadisticaCelulas() {
         listaFrame= new DefaultListModel();
         initComponents();
+        CheckLanguage();
+    }
+    
+    public void CheckLanguage(){
+        if(Languages.language == Languages.Language.Spanish){
+            MenuArchivo.setText("Archivo");
+            MenuOpciones.setText("Opciones");
+            MenuGuardar.setText("Guardar");
+            GuardaImagen.setText("Imagen");
+            MenuFondo.setText("Fondo");
+            Original.setText("Imagen Original");
+            Separada.setText("Imagen Separada");
+            Filtrada.setText("Imagen Filtrada");
+            Poblacion.setText("Poblacion:");
+            Maximo.setText("Tamaño Maximo");
+            Minimo.setText("Tamaño Minimo");
+            BotonGrafica.setText("Graficar Clusters");
+            Añade.setText("Añadir");
+            AñadeArea.setText("Añadir con area");
+            Borra.setText("Borrar");
+        }else if(Languages.language == Languages.Language.English){
+            MenuArchivo.setText("File");
+            MenuOpciones.setText("Options");
+            MenuGuardar.setText("Save");
+            GuardaImagen.setText("Image");
+            MenuFondo.setText("Background");
+            Original.setText("Original Image");
+            Separada.setText("Split Image");
+            Filtrada.setText("Filtered Image");
+            Poblacion.setText("Population:");
+            Maximo.setText("Maximum Size");
+            Minimo.setText("Minimum Size");
+            BotonGrafica.setText("Draw Clusters");
+            Añade.setText("Add");
+            AñadeArea.setText("Add with area");
+            Borra.setText("Delete");
+        } 
     }
 
     
@@ -100,17 +137,17 @@ public class EstadisticaCelulas extends javax.swing.JFrame {
         Acciones = new javax.swing.ButtonGroup();
         Zoom = new javax.swing.ButtonGroup();
         LabelTipo = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        Poblacion = new javax.swing.JLabel();
+        Maximo = new javax.swing.JLabel();
+        Minimo = new javax.swing.JLabel();
+        Promedio = new javax.swing.JLabel();
         lblPoblacion = new javax.swing.JLabel();
         lblTamMax = new javax.swing.JLabel();
         lblTamMin = new javax.swing.JLabel();
         lblPromedio = new javax.swing.JLabel();
         ScrollList = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
-        jLabel6 = new javax.swing.JLabel();
+        ClustersL = new javax.swing.JLabel();
         ScrollView = new javax.swing.JScrollPane();
         ViewLabel = new javax.swing.JLabel();
         BotonGrafica = new javax.swing.JButton();
@@ -151,13 +188,13 @@ public class EstadisticaCelulas extends javax.swing.JFrame {
         LabelTipo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         LabelTipo.setText("Imagen");
 
-        jLabel2.setText("Poblacion: ");
+        Poblacion.setText("Poblacion: ");
 
-        jLabel3.setText("Tamaño Maximo:");
+        Maximo.setText("Tamaño Maximo:");
 
-        jLabel4.setText("Tamaño Minimo:");
+        Minimo.setText("Tamaño Minimo:");
 
-        jLabel5.setText("Promedio:");
+        Promedio.setText("Promedio:");
 
         lblPoblacion.setText("jLabel6");
 
@@ -175,9 +212,9 @@ public class EstadisticaCelulas extends javax.swing.JFrame {
         });
         ScrollList.setViewportView(jList1);
 
-        jLabel6.setText("Clusters:");
+        ClustersL.setText("Clusters:");
 
-        ScrollView.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        ScrollView.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ScrollView.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 ScrollViewMouseDragged(evt);
@@ -396,8 +433,8 @@ public class EstadisticaCelulas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
+                            .addComponent(Maximo)
+                            .addComponent(Poblacion))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
@@ -406,20 +443,20 @@ public class EstadisticaCelulas extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblPoblacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
+                        .addComponent(Minimo)
                         .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblTamMin, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblPromedio, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
+                    .addComponent(Promedio)
+                    .addComponent(ClustersL)
                     .addComponent(ScrollList, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotonGrafica))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LabelTipo)
-                    .addComponent(ScrollView, javax.swing.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE))
+                    .addComponent(ScrollView, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -427,22 +464,22 @@ public class EstadisticaCelulas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(Poblacion)
                     .addComponent(lblPoblacion))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(Maximo)
                     .addComponent(lblTamMax))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(Minimo)
                     .addComponent(lblTamMin))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(Promedio)
                     .addComponent(lblPromedio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
+                .addComponent(ClustersL)
                 .addGap(12, 12, 12)
                 .addComponent(ScrollList, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -737,17 +774,22 @@ public class EstadisticaCelulas extends javax.swing.JFrame {
     private javax.swing.JRadioButton AñadeArea;
     private javax.swing.JRadioButton Borra;
     private javax.swing.JButton BotonGrafica;
+    private javax.swing.JLabel ClustersL;
     private javax.swing.JRadioButtonMenuItem Filtrada;
     private javax.swing.JMenuItem GuardaImagen;
     private javax.swing.JRadioButtonMenuItem Horizontal;
     private javax.swing.ButtonGroup ImagSelec;
     private javax.swing.JLabel LabelTipo;
+    private javax.swing.JLabel Maximo;
     private javax.swing.JMenu MenuArchivo;
     private javax.swing.JMenu MenuFondo;
     private javax.swing.JMenu MenuGuardar;
     private javax.swing.JMenu MenuOpciones;
     private javax.swing.JMenu MenuZoom;
+    private javax.swing.JLabel Minimo;
     private javax.swing.JRadioButtonMenuItem Original;
+    private javax.swing.JLabel Poblacion;
+    private javax.swing.JLabel Promedio;
     private javax.swing.JScrollPane ScrollList;
     private javax.swing.JScrollPane ScrollView;
     private javax.swing.JRadioButtonMenuItem Separada;
@@ -755,11 +797,6 @@ public class EstadisticaCelulas extends javax.swing.JFrame {
     private javax.swing.JLabel ViewLabel;
     private javax.swing.ButtonGroup Zoom;
     private javax.swing.JMenuItem guardaExcel;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JList jList1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel3;

@@ -568,53 +568,63 @@ public class Main extends javax.swing.JFrame
     }//GEN-LAST:event_GuardarProcesadaActionPerformed
                                               
     private void setEnglishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setEnglishActionPerformed
-        MenuArchivo.setText("File");
-            MenuAbrir.setText("Open Image");
-            MenuGuardar.setText("Save Image");
-                GuardarOriginal.setText("Original");
-                GuardarProcesada.setText("Processed");
-            Salir.setText("Exit");
-        MenuProcesos.setText("Processes");
-            MenuHomN.setText("Homogenize");
-        MenuOpciones.setText("Options");
-            Resolution.setText("Resolution");
-        MenuAyuda.setText("Help");
-            about.setText("About");
-            Language.setText("Change Language");
-                setEnglish.setText("English");
-                setSpanish.setText("Spanish");
-        MenuAprendizaje.setText("Learning");
-            AprendeMaquina.setText("Add Database");
-            AprendeHumano.setText("Expert Guided");
-            AprendeAgregacion.setText("Learn by Aggregation");
-        MenuCargar.setText("Load");
-            CargaConocimiento.setText("Load Knowledge");
+        Languages.language = Languages.Language.English;
+        CheckLanguage();
     }//GEN-LAST:event_setEnglishActionPerformed
 
     private void setSpanishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setSpanishActionPerformed
-        MenuArchivo.setText("Archivo");
+        Languages.language = Languages.Language.Spanish;
+        CheckLanguage();
+    }//GEN-LAST:event_setSpanishActionPerformed
+    
+    public void CheckLanguage(){
+        if(Languages.language == Languages.Language.Spanish){
+            MenuArchivo.setText("Archivo");
             MenuAbrir.setText("Abrir Imagen");
             MenuGuardar.setText("Guardar Imagen");
                 GuardarOriginal.setText("Imagen Original");
                 GuardarProcesada.setText("Imagen Procesada");
-            Salir.setText("Salir");
-        MenuProcesos.setText("Procesos");
-            MenuHomN.setText("Homogeneizar");
-        MenuOpciones.setText("Opciones");
-            Resolution.setText("Resolucion");
-        MenuAyuda.setText("Ayuda");
-            about.setText("Acerca de..");
-            Language.setText("Cambiar Idioma");
-                setEnglish.setText("Ingles");
-                setSpanish.setText("Español");
-        MenuAprendizaje.setText("Aprendizaje");
-            AprendeMaquina.setText("Anadir Base De Datos");
-            AprendeHumano.setText("Guiado Por Experto");
-            AprendeAgregacion.setText("Aprender por Agregacion");
-        MenuCargar.setText("Cargar");
-            CargaConocimiento.setText("Cargar Conocimiento");
-    }//GEN-LAST:event_setSpanishActionPerformed
-
+                Salir.setText("Salir");
+            MenuProcesos.setText("Procesos");
+                MenuHomN.setText("Homogeneizar");
+            MenuOpciones.setText("Opciones");
+                Resolution.setText("Resolucion");
+            MenuAyuda.setText("Ayuda");
+                about.setText("Acerca de..");
+                Language.setText("Cambiar Idioma");
+                    setEnglish.setText("Ingles");
+                    setSpanish.setText("Español");
+            MenuAprendizaje.setText("Aprendizaje");
+                AprendeMaquina.setText("Anadir Base De Datos");
+                AprendeHumano.setText("Guiado Por Experto");
+                AprendeAgregacion.setText("Aprender por Agregacion");
+            MenuCargar.setText("Cargar");
+                CargaConocimiento.setText("Cargar Conocimiento");
+        }else if(Languages.language == Languages.Language.English){
+            MenuArchivo.setText("File");
+            MenuAbrir.setText("Open Image");
+            MenuGuardar.setText("Save Image");
+                GuardarOriginal.setText("Original");
+                GuardarProcesada.setText("Processed");
+                Salir.setText("Exit");
+            MenuProcesos.setText("Processes");
+                MenuHomN.setText("Homogenize");
+            MenuOpciones.setText("Options");
+                Resolution.setText("Resolution");
+            MenuAyuda.setText("Help");
+                about.setText("About");
+                Language.setText("Change Language");
+                    setEnglish.setText("English");
+                    setSpanish.setText("Spanish");
+            MenuAprendizaje.setText("Learning");
+                AprendeMaquina.setText("Add Database");
+                AprendeHumano.setText("Expert Guided");
+                AprendeAgregacion.setText("Learn by Aggregation");
+            MenuCargar.setText("Load");
+                CargaConocimiento.setText("Load Knowledge");
+        }
+    }
+    
     private void AprendeMaquinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AprendeMaquinaActionPerformed
         learn=new Analizer();
         learn.setVisible(true);        

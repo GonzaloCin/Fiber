@@ -74,11 +74,27 @@ public class MAHAGUI extends javax.swing.JFrame {
      */
     public MAHAGUI() {
         initComponents();
+        CheckLanguage();
         Tipo3.setVisible(false);
         FondoOk.setVisible(false);
         Tipo1Ok.setVisible(false);
        Tipo2Ok.setVisible(false);
        Tipo3Ok.setVisible(false);
+    }
+    
+    public void CheckLanguage(){
+        if(Languages.language == Languages.Language.Spanish){
+            MenuArchivo.setText("Archivo");
+            MenuOpciones.setText("Opciones");
+            Abrir.setText("Abrir");
+        }else if(Languages.language == Languages.Language.English){
+            MenuArchivo.setText("File");
+            MenuOpciones.setText("Options");
+            Abrir.setText("Open");
+            FondoOtros.setText("Background Other");
+            Tipo1.setText("Oxidative (dark)");
+            Tipo2.setText("Glycolytic (light)");
+        } 
     }
     
     private void paintFondoM(){
@@ -124,7 +140,7 @@ public class MAHAGUI extends javax.swing.JFrame {
         selectCOX = new javax.swing.JRadioButton();
         GuardarVal = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        MenuArchivo = new javax.swing.JMenu();
         Abrir = new javax.swing.JMenuItem();
         MenuOpciones = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -233,12 +249,12 @@ public class MAHAGUI extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(FondoOk))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(FondoOtros)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -317,7 +333,7 @@ public class MAHAGUI extends javax.swing.JFrame {
                 .addComponent(GuardarVal))
         );
 
-        jMenu1.setText("Archivo");
+        MenuArchivo.setText("Archivo");
 
         Abrir.setText("Abrir");
         Abrir.addActionListener(new java.awt.event.ActionListener() {
@@ -325,9 +341,9 @@ public class MAHAGUI extends javax.swing.JFrame {
                 AbrirActionPerformed(evt);
             }
         });
-        jMenu1.add(Abrir);
+        MenuArchivo.add(Abrir);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(MenuArchivo);
 
         MenuOpciones.setText("Opciones");
         MenuOpciones.setEnabled(false);
@@ -402,9 +418,8 @@ public class MAHAGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -586,8 +601,13 @@ public class MAHAGUI extends javax.swing.JFrame {
     
     private void selectNADHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectNADHActionPerformed
         // TODO add your handling code here:
-        Tipo1.setText("Oxidativas(oscuras)");
-        Tipo2.setText("Glucoliticas(claras)");
+        if(Languages.language == Languages.Language.Spanish){
+            Tipo1.setText("Oxidativas(oscuras)");
+            Tipo2.setText("Glucoliticas(claras)");
+        }else if(Languages.language == Languages.Language.English){
+            Tipo1.setText("Oxidative (dark)");
+            Tipo2.setText("Glycolytic (light)");
+        }
         Tipo3.setVisible(false);
         FondoOk.setVisible(false);
         Tipo1Ok.setVisible(false);
@@ -597,15 +617,20 @@ public class MAHAGUI extends javax.swing.JFrame {
        ColoresT2.clear();
        ColoresT3.clear();
        ColoresFondo.clear();
-       jMenu1.setEnabled(true);
+       MenuArchivo.setEnabled(true);
        //CampoA.getGraphics().drawImage(fondo.getResizedImage(),0,0,CampoA.getWidth(),CampoA.getHeight(),null);
        tipoimagen=0;
     }//GEN-LAST:event_selectNADHActionPerformed
 
     private void selectCOXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectCOXActionPerformed
         // TODO add your handling code here:
-        Tipo1.setText("Oxidativas(oscuras)");
-        Tipo2.setText("Glucoliticas(claras)");
+        if(Languages.language == Languages.Language.Spanish){
+            Tipo1.setText("Oxidativas(oscuras)");
+            Tipo2.setText("Glucoliticas(claras)");
+        }else if(Languages.language == Languages.Language.English){
+            Tipo1.setText("Oxidative (dark)");
+            Tipo2.setText("Glycolytic (light)");
+        }
         Tipo3.setVisible(false);
         FondoOk.setVisible(false);
         Tipo1Ok.setVisible(false);
@@ -615,16 +640,22 @@ public class MAHAGUI extends javax.swing.JFrame {
        ColoresT2.clear();
        ColoresT3.clear();
        ColoresFondo.clear();
-       jMenu1.setEnabled(true);
+       MenuArchivo.setEnabled(true);
        tipoimagen=2;
        //CampoA.getGraphics().drawImage(fondo.getResizedImage(),0,0,CampoA.getWidth(),CampoA.getHeight(),null);
     }//GEN-LAST:event_selectCOXActionPerformed
 
     private void selectATPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectATPActionPerformed
         // TODO add your handling code here:
-        Tipo1.setText("Intermedias(oscuras)");
-        Tipo2.setText("Rapidas(medias)");
-        Tipo3.setText("Lentas(claras)");
+        if(Languages.language == Languages.Language.Spanish){
+            Tipo1.setText("Intermedias(oscuras)");
+            Tipo2.setText("Rapidas(medias)");
+            Tipo3.setText("Lentas(claras)");
+        }else if(Languages.language == Languages.Language.English){
+            Tipo1.setText("Intermediate(dark)");
+            Tipo2.setText("Fast(medium)");
+            Tipo3.setText("Slow(light)");
+        }
         Tipo3.setVisible(true);
         FondoOk.setVisible(false);
         Tipo1Ok.setVisible(false);
@@ -634,7 +665,7 @@ public class MAHAGUI extends javax.swing.JFrame {
        ColoresT2.clear();
        ColoresT3.clear();
        ColoresFondo.clear();
-       jMenu1.setEnabled(true);
+       MenuArchivo.setEnabled(true);
        tipoimagen=1;
        //CampoA.getGraphics().drawImage(fondo.getResizedImage(),0,0,CampoA.getWidth(),CampoA.getHeight(),null);
     }//GEN-LAST:event_selectATPActionPerformed
@@ -1418,6 +1449,7 @@ public class MAHAGUI extends javax.swing.JFrame {
     private javax.swing.ButtonGroup GrupoZoom;
     private javax.swing.JButton GuardarVal;
     private javax.swing.JLabel LMuestra;
+    private javax.swing.JMenu MenuArchivo;
     private javax.swing.JMenu MenuOpciones;
     private javax.swing.JRadioButton Tipo1;
     private javax.swing.JLabel Tipo1Ok;
@@ -1427,7 +1459,6 @@ public class MAHAGUI extends javax.swing.JFrame {
     private javax.swing.JLabel Tipo3Ok;
     private javax.swing.ButtonGroup TipoFIB;
     private javax.swing.ButtonGroup TipoIMG;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;

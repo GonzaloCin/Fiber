@@ -169,6 +169,7 @@
         <Component class="javax.swing.JButton" name="Agrega3d">
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar K3D"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Agrega3dActionPerformed"/>
@@ -179,12 +180,12 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="AgregarSOM">
+        <Component class="javax.swing.JButton" name="AgregaSOM">
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar SOM"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgregarSOMActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgregaSOMActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">

@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package GUI;
 
 import Grouping.Calculus;
@@ -80,19 +74,36 @@ public class Agregacion extends javax.swing.JFrame {
      */
     public Agregacion() {
         initComponents();
+        CheckLanguage();
         Tipo3.setVisible(false);
         FondoOk.setVisible(false);
         Tipo1Ok.setVisible(false);
-       Tipo2Ok.setVisible(false);
-       Tipo3Ok.setVisible(false);
-       Espere.setVisible(false);
+        Tipo2Ok.setVisible(false);
+        Tipo3Ok.setVisible(false);
+        Espere.setVisible(false);
+    }
+    
+    public void CheckLanguage(){
+        if(Languages.language == Languages.Language.Spanish){
+            MenuArchivo.setText("Archivo");
+            MenuOpciones.setText("Opciones");
+            Abrir.setText("Abrir");
+        }else if(Languages.language == Languages.Language.English){
+            MenuArchivo.setText("File");
+            MenuOpciones.setText("Options");
+            Abrir.setText("Open");
+            FondoOtros.setText("Background Other");
+            Tipo1.setText("Oxidative (dark)");
+            Tipo2.setText("Glycolytic (light)");
+            Espere.setText("Runing Algorithms...");
+        } 
     }
     
     private void paintFondoM(){
         
         //Campo.getGraphics().drawImage(reducida,0,0,700,700,null);
         LMuestra.setIcon(new ImageIcon(auxMuestra));
-    }
+    } 
     
     private void openImage()
     {
@@ -280,14 +291,13 @@ public class Agregacion extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(Tipo2)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Tipo2Ok)))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Tipo2Ok)
                 .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Tipo2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -645,8 +655,13 @@ public class Agregacion extends javax.swing.JFrame {
 
     private void selectNADHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectNADHActionPerformed
         // TODO add your handling code here:
-        Tipo1.setText("Oxidativas(oscuras)");
-        Tipo2.setText("Glucoliticas(claras)");
+        if(Languages.language == Languages.Language.Spanish){
+            Tipo1.setText("Oxidativas(oscuras)");
+            Tipo2.setText("Glucoliticas(claras)");
+        }else if(Languages.language == Languages.Language.English){
+            Tipo1.setText("Oxidative (dark)");
+            Tipo2.setText("Glycolytic (light)");
+        }
         Tipo3.setVisible(false);
         FondoOk.setVisible(false);
         Tipo1Ok.setVisible(false);
@@ -676,8 +691,13 @@ public class Agregacion extends javax.swing.JFrame {
 
     private void selectCOXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectCOXActionPerformed
         // TODO add your handling code here:
-        Tipo1.setText("Oxidativas(oscuras)");
-        Tipo2.setText("Glucoliticas(claras)");
+        if(Languages.language == Languages.Language.Spanish){
+            Tipo1.setText("Oxidativas(oscuras)");
+            Tipo2.setText("Glucoliticas(claras)");
+        }else if(Languages.language == Languages.Language.English){
+            Tipo1.setText("Oxidative (dark)");
+            Tipo2.setText("Glycolytic (light)");
+        }
         Tipo3.setVisible(false);
         FondoOk.setVisible(false);
         Tipo1Ok.setVisible(false);
@@ -706,9 +726,16 @@ public class Agregacion extends javax.swing.JFrame {
 
     private void selectATPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectATPActionPerformed
         // TODO add your handling code here:
-        Tipo1.setText("Intermedias(oscuras)");
-        Tipo2.setText("Rapidas(medias)");
-        Tipo3.setText("Lentas(claras)");
+        
+        if(Languages.language == Languages.Language.Spanish){
+            Tipo1.setText("Intermedias(oscuras)");
+            Tipo2.setText("Rapidas(medias)");
+            Tipo3.setText("Lentas(claras)");
+        }else if(Languages.language == Languages.Language.English){
+            Tipo1.setText("Intermediate(dark)");
+            Tipo2.setText("Fast(medium)");
+            Tipo3.setText("Slow(light)");
+        }
         Tipo3.setVisible(true);
         FondoOk.setVisible(false);
         Tipo1Ok.setVisible(false);

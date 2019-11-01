@@ -54,10 +54,25 @@ public class Analizer extends javax.swing.JFrame {
      */
     public Analizer() {
         initComponents();
-        AgregarSOM.setVisible(false);
+        CheckLanguage();
+        AgregaSOM.setVisible(false);
         base_de_datos=new Database();
         images = new DefaultListModel();
         allImages=new ArrayList<>();
+    }
+    
+    public void CheckLanguage(){
+        if(Languages.language == Languages.Language.Spanish){
+            Agrega.setText("Agregar Imagen");
+            Agrega3d.setText("Agregar K3D");
+            AgregaFuzzy.setText("Agregar Fuzzy CMeans");
+            AgregaSOM.setText("Agregar SOM");
+        }else if(Languages.language == Languages.Language.English){
+            Agrega.setText("Add Image");
+            Agrega3d.setText("Add K3D");
+            AgregaFuzzy.setText("Add Fuzzy CMeans");
+            AgregaSOM.setText("Add SOM");
+        } 
     }
 
     /**
@@ -79,7 +94,7 @@ public class Analizer extends javax.swing.JFrame {
         TCOX = new javax.swing.JRadioButton();
         AgregaFuzzy = new javax.swing.JButton();
         Agrega3d = new javax.swing.JButton();
-        AgregarSOM = new javax.swing.JButton();
+        AgregaSOM = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -148,6 +163,7 @@ public class Analizer extends javax.swing.JFrame {
         jPanel1.add(AgregaFuzzy, gridBagConstraints);
 
         Agrega3d.setText("Agregar K3D");
+        Agrega3d.setToolTipText("");
         Agrega3d.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Agrega3dActionPerformed(evt);
@@ -159,17 +175,17 @@ public class Analizer extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel1.add(Agrega3d, gridBagConstraints);
 
-        AgregarSOM.setText("Agregar SOM");
-        AgregarSOM.addActionListener(new java.awt.event.ActionListener() {
+        AgregaSOM.setText("Agregar SOM");
+        AgregaSOM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgregarSOMActionPerformed(evt);
+                AgregaSOMActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel1.add(AgregarSOM, gridBagConstraints);
+        jPanel1.add(AgregaSOM, gridBagConstraints);
 
         jPanel2.setBackground(new java.awt.Color(249, 235, 235));
         jPanel2.setMaximumSize(new java.awt.Dimension(1920, 270));
@@ -293,10 +309,13 @@ public class Analizer extends javax.swing.JFrame {
            
             float[][] res=((FCmeans)FCM).getResult();
             GlobalKnowledge.SaveFCM(res, tipoimagen);
-        JOptionPane.showMessageDialog(null, "Listo, Fuzzy Cmeans Agregado\n Ahora Agrega Conocimiento en la Pagina Principal");
-            System.out.printf("Tiempo de Ejecución= %d ms", TF-TI);
         
-           JOptionPane.showMessageDialog(null, "Listo, Kmeans Agregado \n Ahora Agrega Conocimiento en la Pagina Principal");
+        if(Languages.language == Languages.Language.Spanish){
+            JOptionPane.showMessageDialog(null, "Listo, Fuzzy Cmeans Agregado\n Ahora Agrega Conocimiento en la Ventana Principal");
+        }else if(Languages.language == Languages.Language.English){
+            JOptionPane.showMessageDialog(null, "OK, Fuzzy Cmeans Added\n Now Add Knowledge at the main window");
+        }
+        
     }//GEN-LAST:event_AgregaFuzzyActionPerformed
 
     private void AgregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregaActionPerformed
@@ -325,7 +344,11 @@ public class Analizer extends javax.swing.JFrame {
         //Creamos un nuevo cuadro de diálogo para seleccionar imagen
         JFileChooser selector=new JFileChooser();
         //Le damos un título
-        selector.setDialogTitle("Seleccione una imagen");
+        if(Languages.language == Languages.Language.Spanish){
+            selector.setDialogTitle("Seleccione una imagen");
+        }else if(Languages.language == Languages.Language.English){
+            selector.setDialogTitle("Select an image");
+        }
         //Filtramos los tipos de archivos
         FileNameExtensionFilter filtroImagen = new FileNameExtensionFilter("JPG & GIF & BMP & TIFF", "jpg", "gif", "bmp","tif","tiff");
         selector.setFileFilter(filtroImagen);
@@ -387,7 +410,11 @@ public class Analizer extends javax.swing.JFrame {
             float[][] res=((Kmeans3)kmeans3).getResult();
             GlobalKnowledge.SaveK3(res, tipoimagen);
             setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        JOptionPane.showMessageDialog(null, "Listo, Kmeans 3d Agregado\n Ahora Agrega Conocimiento en la Pagina Principal");
+            if(Languages.language == Languages.Language.Spanish){
+                JOptionPane.showMessageDialog(null, "Listo, Kmeans 3d Agregado\n Ahora Agrega Conocimiento en la Ventana Principal");
+            }else if(Languages.language == Languages.Language.English){
+                JOptionPane.showMessageDialog(null, "OK, Kmeans 3d Added\n Now Add Knowledge at the main window");
+            }
     }//GEN-LAST:event_Agrega3dActionPerformed
     
     private void OrdenResultados(double[][] matres,int ve){
@@ -409,7 +436,7 @@ public class Analizer extends javax.swing.JFrame {
     }
     
     
-    private void AgregarSOMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarSOMActionPerformed
+    private void AgregaSOMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregaSOMActionPerformed
         // TODO add your handling code here:
                                       
         byte tipoimagen=10;
@@ -442,10 +469,13 @@ public class Analizer extends javax.swing.JFrame {
             
             GlobalKnowledge.SaveKM(res, tipoimagen);            
         //up.nfl.com
+        if(Languages.language == Languages.Language.Spanish){
+                JOptionPane.showMessageDialog(null, "Listo, SOM Agregado\n Ahora Agrega Conocimiento en la Ventana Principal");      
+        }else if(Languages.language == Languages.Language.English){
+                JOptionPane.showMessageDialog(null, "OK, SOM 3d Added\n Now Add Knowledge at the main window");
+        }
         
-        JOptionPane.showMessageDialog(null, "Listo, SOM Agregado\n Ahora Agrega Conocimiento en la Pagina Principal");      
-        
-    }//GEN-LAST:event_AgregarSOMActionPerformed
+    }//GEN-LAST:event_AgregaSOMActionPerformed
 
     /**
      * @param args the command line arguments
@@ -486,7 +516,7 @@ public class Analizer extends javax.swing.JFrame {
     private javax.swing.JButton Agrega;
     private javax.swing.JButton Agrega3d;
     private javax.swing.JButton AgregaFuzzy;
-    private javax.swing.JButton AgregarSOM;
+    private javax.swing.JButton AgregaSOM;
     private javax.swing.JRadioButton TATP;
     private javax.swing.JRadioButton TCOX;
     private javax.swing.JRadioButton TNADH;

@@ -10,7 +10,7 @@
     </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="MenuArchivo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Archivo"/>
           </Properties>

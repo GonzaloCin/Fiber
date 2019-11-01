@@ -228,17 +228,14 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="Tipo2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="Tipo2Ok" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="Tipo2Ok" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="Tipo2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -390,7 +387,7 @@
         <Component class="javax.swing.JLabel" name="LMuestra">
           <Properties>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor Por defecto"/>
+              <Color id="Default Cursor"/>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[9990, 9990]"/>
