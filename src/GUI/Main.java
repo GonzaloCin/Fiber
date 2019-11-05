@@ -425,7 +425,7 @@ public class Main extends javax.swing.JFrame
 
         jMenuBar1.add(MenuAyuda);
 
-        MenuAprendizaje.setText("Aprendizade");
+        MenuAprendizaje.setText("Aprendizaje");
 
         AprendeMaquina.setText("Anadir Base de Imagenes");
         AprendeMaquina.setToolTipText("Usa algoritmos de minería de datos");

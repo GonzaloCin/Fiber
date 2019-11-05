@@ -247,7 +247,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="MenuAprendizaje">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Aprendizade"/>
+            <Property name="text" type="java.lang.String" value="Aprendizaje"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="AprendeMaquina">
