@@ -94,6 +94,7 @@ public class MAHAGUI extends javax.swing.JFrame {
             FondoOtros.setText("Background Other");
             Tipo1.setText("Oxidative (dark)");
             Tipo2.setText("Glycolytic (light)");
+            GuardarVal.setText("Save Values");
         } 
     }
     
@@ -907,7 +908,11 @@ public class MAHAGUI extends javax.swing.JFrame {
             //HumanRGB.setVGreen(2,auxGreen);
             //HumanRGB.setVBlue(2,auxBlue); 
         }
-        JOptionPane.showMessageDialog(null, "Listo, Experto agregado. Ahora agrega conocimieno");
+        if(Languages.language == Languages.Language.Spanish){
+            JOptionPane.showMessageDialog(null, "Listo, Experto agregado.\n Ahora Agrega Conocimiento en la Ventana Principal");
+        }else if(Languages.language == Languages.Language.English){
+            JOptionPane.showMessageDialog(null, "OK, Added Expert\n Now Add Knowledge at the main window");            
+        }
     }//GEN-LAST:event_GuardarValActionPerformed
 
     private void CampoAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoAMouseClicked

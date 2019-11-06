@@ -6,6 +6,7 @@
 
 package Threads;
 
+import GUI.Languages;
 import Grouping.Group;
 import Grouping.Point3;
 import Process.GlobalKnowledge;
@@ -116,7 +117,11 @@ public class BlackBoard {
     
     private static void aggregate(){
         if(asignedFCM && asignedK3){
-            label.setText("Finalizado");
+            if(Languages.language == Languages.Language.Spanish){
+                label.setText("Finalizado");
+            }else if(Languages.language == Languages.Language.English){
+                label.setText("Finished");
+            }
         }
         
         if(asignedFCM && asignedK3 && asignedH /*&& asignedKM*/){
@@ -132,10 +137,18 @@ public class BlackBoard {
             //GlobalKnowledge.SaveKM(dataKM, imagetype); ///falta convergencia
             GlobalKnowledge.SaveAg(dataAggregated, imagetype); 
             GlobalKnowledge.SaveVar(dataHV,imagetype);
-            label.setText("Agregue Conocimiento");
+            if(Languages.language == Languages.Language.Spanish){
+                label.setText("Agregue Conocimiento");
+            }else if(Languages.language == Languages.Language.English){
+                label.setText("Now Add Knowledge");
+            }
             SharedData=null;
             System.gc();
-            JOptionPane.showMessageDialog(null, "Listo, Fuzzy c-means, Kmeans 3d , Experto y Agregacion Agregado\n Ahora Agrega Conocimiento en la Pagina Principal");
+            if(Languages.language == Languages.Language.Spanish){
+                JOptionPane.showMessageDialog(null, "Listo, Fuzzy c-means, Kmeans 3d , Experto y Agregacion Agregado\n Ahora Agrega Conocimiento en la Ventana Principal");
+            }else if(Languages.language == Languages.Language.English){
+                JOptionPane.showMessageDialog(null, "OK, Added Fuzzy c-means, Kmeans 3d , Expert and Aggregation \n Now add knowledge at the main window");
+            }
         }
     }
 }

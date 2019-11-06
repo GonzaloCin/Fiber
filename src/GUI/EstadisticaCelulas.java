@@ -98,12 +98,16 @@ public class EstadisticaCelulas extends javax.swing.JFrame {
             Separada.setText("Imagen Separada");
             Filtrada.setText("Imagen Filtrada");
             Poblacion.setText("Poblacion:");
-            Maximo.setText("Tamaño Maximo");
-            Minimo.setText("Tamaño Minimo");
+            Maximo.setText("Tamaño Maximo:");
+            Minimo.setText("Tamaño Minimo:");
+            Promedio.setText("Promedio:");
             BotonGrafica.setText("Graficar Clusters");
             Añade.setText("Añadir");
+            Añade.setToolTipText("Añade fibras con un solo click");
             AñadeArea.setText("Añadir con area");
+            AñadeArea.setToolTipText("Haz un recuadro sobre la fibra");
             Borra.setText("Borrar");
+            Borra.setToolTipText("Haz un recuadro sobre las fibras a eliminar");
         }else if(Languages.language == Languages.Language.English){
             MenuArchivo.setText("File");
             MenuOpciones.setText("Options");
@@ -114,12 +118,16 @@ public class EstadisticaCelulas extends javax.swing.JFrame {
             Separada.setText("Split Image");
             Filtrada.setText("Filtered Image");
             Poblacion.setText("Population:");
-            Maximo.setText("Maximum Size");
-            Minimo.setText("Minimum Size");
+            Maximo.setText("Maximum Size:");
+            Minimo.setText("Minimum Size:");
+            Promedio.setText("Average:");
             BotonGrafica.setText("Draw Clusters");
             Añade.setText("Add");
+            Añade.setToolTipText("Add fibers with only one click");
             AñadeArea.setText("Add with area");
+            AñadeArea.setToolTipText("Draw a square on the fiber");
             Borra.setText("Delete");
+            Borra.setToolTipText("Draw a square on the fibers to be deleted");
         } 
     }
 

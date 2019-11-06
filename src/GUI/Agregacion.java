@@ -96,6 +96,7 @@ public class Agregacion extends javax.swing.JFrame {
             Tipo1.setText("Oxidative (dark)");
             Tipo2.setText("Glycolytic (light)");
             Espere.setText("Runing Algorithms...");
+            GuardarVal.setText("Save Values");
         } 
     }
     
@@ -1002,7 +1003,11 @@ public class Agregacion extends javax.swing.JFrame {
             
             
         }
-        JOptionPane.showMessageDialog(null, "Listo, conocimiento de Experto agregado satisfactoriamente");
+        if(Languages.language == Languages.Language.Spanish){
+            JOptionPane.showMessageDialog(null, "Listo, conocimiento de Experto agregado satisfactoriamente");
+        }else if(Languages.language == Languages.Language.Spanish){
+            JOptionPane.showMessageDialog(null, "OK, Expert knowledge added succsessfully");
+        }
     }//GEN-LAST:event_GuardarValActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown

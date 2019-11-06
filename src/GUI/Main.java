@@ -405,7 +405,7 @@ public class Main extends javax.swing.JFrame
 
         Language.setText("Cambiar Idioma...");
 
-        setEnglish.setText("Ingles");
+        setEnglish.setText("Inglés");
         setEnglish.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setEnglishActionPerformed(evt);
@@ -587,19 +587,29 @@ public class Main extends javax.swing.JFrame
                 Salir.setText("Salir");
             MenuProcesos.setText("Procesos");
                 MenuHomN.setText("Homogeneizar");
+                    MultiATP.setText("ATPasa");
             MenuOpciones.setText("Opciones");
                 Resolution.setText("Resolucion");
+                Resolution.setToolTipText("Es la resulución ocupada para el procesamiento y conteo, mientras mas grande mas preciso, pero necesita mas recursos");
             MenuAyuda.setText("Ayuda");
                 about.setText("Acerca de..");
                 Language.setText("Cambiar Idioma");
-                    setEnglish.setText("Ingles");
+                    setEnglish.setText("Inglés");
                     setSpanish.setText("Español");
             MenuAprendizaje.setText("Aprendizaje");
                 AprendeMaquina.setText("Anadir Base De Datos");
+                AprendeMaquina.setToolTipText("Usa algoritmos de minería de datos");
                 AprendeHumano.setText("Guiado Por Experto");
+                AprendeHumano.setToolTipText("Indicar manualmente los colores de cada tipo de fibra");
                 AprendeAgregacion.setText("Aprender por Agregacion");
+                AprendeAgregacion.setToolTipText("Una combinación de los métodos de inteligencia artificial y guiado por experto");
             MenuCargar.setText("Cargar");
                 CargaConocimiento.setText("Cargar Conocimiento");
+                CargaConocimiento.setToolTipText("Añade el conocimiento de cualquier forma de aprendizaje");
+            ComboAlgoritmo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Algoritmo" }));
+            ComboTipoFibra.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tipo de Fibra" }));
+            ComboFiltro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Separado", "Dilatacion", "Erosion", "Apertura", "E2D1", "E3D2", "E4D3", "E5D3" }));
+            BConteo.setText("Conteo de Fibras");
         }else if(Languages.language == Languages.Language.English){
             MenuArchivo.setText("File");
             MenuAbrir.setText("Open Image");
@@ -609,8 +619,10 @@ public class Main extends javax.swing.JFrame
                 Salir.setText("Exit");
             MenuProcesos.setText("Processes");
                 MenuHomN.setText("Homogenize");
+                    MultiATP.setText("ATPase");
             MenuOpciones.setText("Options");
                 Resolution.setText("Resolution");
+                Resolution.setToolTipText("Is the resulution used to the processing and count, the bigger the more accurate, but it will need more resources");
             MenuAyuda.setText("Help");
                 about.setText("About");
                 Language.setText("Change Language");
@@ -618,10 +630,18 @@ public class Main extends javax.swing.JFrame
                     setSpanish.setText("Spanish");
             MenuAprendizaje.setText("Learning");
                 AprendeMaquina.setText("Add Database");
+                AprendeMaquina.setToolTipText("Uses data mining algorithms");
                 AprendeHumano.setText("Expert Guided");
+                AprendeHumano.setToolTipText("Manually indicate the colors of each fiber type");
                 AprendeAgregacion.setText("Learn by Aggregation");
+                AprendeAgregacion.setToolTipText("Uses a combination of AI methods and expert guided");
             MenuCargar.setText("Load");
                 CargaConocimiento.setText("Load Knowledge");
+                CargaConocimiento.setToolTipText("Adds knowledge of any learning type");
+            ComboAlgoritmo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Algorithm" }));
+            ComboTipoFibra.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Fiber Type" }));
+            ComboFiltro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Separated", "Dilatation", "Erosion", "Opening", "E2D1", "E3D2", "E4D3", "E5D3" }));
+            BConteo.setText("Fiber count");
         }
     }
     
@@ -950,6 +970,7 @@ public class Main extends javax.swing.JFrame
                 case "Kohonen Map":
                     algorithm = Algorithms.KohonenMap;
                 break;
+                case "Expert":
                 case "Experto":
                     algorithm = Algorithms.Expert;
                 break;
@@ -971,8 +992,13 @@ public class Main extends javax.swing.JFrame
             ComboAlgoritmo.addItem("Kohonen Map");
         }
         if(GlobalKnowledge.isAssignedH(TINCION)){
-            ComboAlgoritmo.addItem("Experto");
-            ComboAlgoritmo.setSelectedItem("Experto");
+            if(Languages.language == Languages.Language.Spanish){
+                ComboAlgoritmo.addItem("Experto");
+                ComboAlgoritmo.setSelectedItem("Experto");
+            }else if(Languages.language == Languages.Language.English){
+                ComboAlgoritmo.addItem("Expert");
+                ComboAlgoritmo.setSelectedItem("Expert");
+            }
             algorithm= Algorithms.Expert;
         }
         if(GlobalKnowledge.isAssignedAg(TINCION)){
@@ -982,14 +1008,27 @@ public class Main extends javax.swing.JFrame
 
     private void conformComboFiberType(){
         if(TINCION == Techniques.ATPASA){
-            ComboTipoFibra.addItem("Homogeneizada");
-            ComboTipoFibra.addItem("Intermedias");
-            ComboTipoFibra.addItem("Rapidas");
-            ComboTipoFibra.addItem("Lentas");
-        }else{  
-            ComboTipoFibra.addItem("Homogeneizada");
-            ComboTipoFibra.addItem("Oxidativas");
-            ComboTipoFibra.addItem("Glucoliticas");
+            if(Languages.language == Languages.Language.Spanish){
+                ComboTipoFibra.addItem("Homogeneizada");
+                ComboTipoFibra.addItem("Intermedias");
+                ComboTipoFibra.addItem("Rapidas");
+                ComboTipoFibra.addItem("Lentas");
+            }else if(Languages.language == Languages.Language.English){
+                ComboTipoFibra.addItem("Homogeneized");
+                ComboTipoFibra.addItem("Intermediate");
+                ComboTipoFibra.addItem("Fast");
+                ComboTipoFibra.addItem("Slow");
+            }
+        }else{
+            if(Languages.language == Languages.Language.Spanish){
+                ComboTipoFibra.addItem("Homogeneizada");
+                ComboTipoFibra.addItem("Oxidativas");
+                ComboTipoFibra.addItem("Glucoliticas");
+            }else if(Languages.language == Languages.Language.English){
+                ComboTipoFibra.addItem("Homogeneized");
+                ComboTipoFibra.addItem("Oxidative");
+                ComboTipoFibra.addItem("Glycolytic");
+            }
         }
         
     }
