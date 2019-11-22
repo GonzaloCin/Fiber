@@ -151,6 +151,7 @@ public class Analizer extends javax.swing.JFrame {
         jPanel1.add(TCOX, gridBagConstraints);
 
         AgregaFuzzy.setText("Agrega Fuzzy Cmeans");
+        AgregaFuzzy.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         AgregaFuzzy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AgregaFuzzyActionPerformed(evt);
@@ -301,6 +302,7 @@ public class Analizer extends javax.swing.JFrame {
             base_de_datos.analyseComplete(allImages, 500000);
             gotFCM=true;
             }
+            setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
             FCM = new FCmeans(n,0.3f,2f,base_de_datos.getComplete());
             FCM.clasify();
             
@@ -309,7 +311,7 @@ public class Analizer extends javax.swing.JFrame {
            
             float[][] res=((FCmeans)FCM).getResult();
             GlobalKnowledge.SaveFCM(res, tipoimagen);
-        
+            setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         if(Languages.language == Languages.Language.Spanish){
             JOptionPane.showMessageDialog(null, "Listo, Fuzzy Cmeans Agregado\n Ahora Agrega Conocimiento en la Ventana Principal");
         }else if(Languages.language == Languages.Language.English){
@@ -381,7 +383,6 @@ public class Analizer extends javax.swing.JFrame {
     
     private void Agrega3dActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agrega3dActionPerformed
         // TODO add your handling code here:
-        setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
         byte tipoimagen=10;
         long TI,TF;
         byte n=3;
@@ -401,6 +402,7 @@ public class Analizer extends javax.swing.JFrame {
             base_de_datos.analyseComplete(allImages, 500000);
             got3D=true;
             }
+            setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
             kmeans3 = new Kmeans3(n,0.1f,base_de_datos.getComplete());
             kmeans3.clasify();
             
@@ -460,6 +462,7 @@ public class Analizer extends javax.swing.JFrame {
             base_de_datos.analyseComplete(allImages, 500000);
             got3D=true;
             }
+            setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
             Som=new KohonenMap(n,0.1f,(byte)4,0.4f,base_de_datos.getComplete());
             Som.clasify();
             
@@ -467,7 +470,8 @@ public class Analizer extends javax.swing.JFrame {
             System.out.printf("Tiempo de Ejecución= %d ms", TF-TI);
             float[][] res=((KohonenMap)Som).getResult();
             
-            GlobalKnowledge.SaveKM(res, tipoimagen);            
+            GlobalKnowledge.SaveKM(res, tipoimagen);
+            setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         //up.nfl.com
         if(Languages.language == Languages.Language.Spanish){
                 JOptionPane.showMessageDialog(null, "Listo, SOM Agregado\n Ahora Agrega Conocimiento en la Ventana Principal");      

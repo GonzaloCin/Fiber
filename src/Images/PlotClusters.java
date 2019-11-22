@@ -74,18 +74,23 @@ public class PlotClusters {
         Color aux=Color.BLACK;
         switch (Tipo){
             case "Oxidativas":
+            case "Oxidative":
                 aux=Color.GREEN;
             break;
             case "Glucoliticas":
+            case "Glycolytic":
                 aux=Color.BLUE;
             break;
             case "Rapidas":
+            case "Fast":
                 aux=Color.BLUE;
             break;
             case "Intermedias":
+            case "Intermediate":
                 aux=Color.RED;
             break;
             case "Lentas":
+            case "Slow":
                 aux=Color.GREEN;
             break;
         }
@@ -98,18 +103,18 @@ public class PlotClusters {
         switch(Mpx){
             case 0:
             case 1: 
-                lado=3; lmedio=1;
-            break;
+            //    lado=3; lmedio=1;
+            //break;
             case 2:
             case 3:
             case 4:
-                lado=5; lmedio=2;
-            break;
+            //    lado=5; lmedio=2;
+            //break;
             case 5:
             case 6:
             case 7:
-                lado=6; lmedio=3;
-            break;
+            //    lado=6; lmedio=3;
+            //break;
             case 8:
             case 9:
             case 10:

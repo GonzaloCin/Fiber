@@ -744,6 +744,7 @@ public class Main extends javax.swing.JFrame
         switch (ComboFiltro.getSelectedItem().toString()) 
         {
             case "Separado":
+            case "Separated":
                 AUXMostrando=imPar[ComboTipoFibra.getSelectedIndex()];
                 ImagenProcesadaLabel.setIcon(new ImageIcon(AUXMostrando));
                 BConteo.setVisible(false);
@@ -755,18 +756,21 @@ public class Main extends javax.swing.JFrame
                 BConteo.setVisible(true);
                 break;
             case "Dilatacion":
+            case "Dilatation":
                 StoCount=Calculus.Dilate(separadas[ComboTipoFibra.getSelectedIndex()]);
                 AUXMostrando=StoCount.getImage();
                 ImagenProcesadaLabel.setIcon(new ImageIcon(AUXMostrando));
                 BConteo.setVisible(true);
                 break;
             case "Apertura":
+            case "Opening":
                 StoCount=Calculus.Opening(separadas[ComboTipoFibra.getSelectedIndex()]);
                 AUXMostrando=StoCount.getImage();
                 ImagenProcesadaLabel.setIcon(new ImageIcon(AUXMostrando));
                 BConteo.setVisible(true);
                 break;
             case "Cerradura":
+            case "Closing":
                 StoCount=Calculus.Closing(separadas[ComboTipoFibra.getSelectedIndex()]);
                 AUXMostrando=StoCount.getImage();
                 ImagenProcesadaLabel.setIcon(new ImageIcon(AUXMostrando));
