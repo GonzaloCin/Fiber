@@ -1,5 +1,5 @@
 # Fiber
-Software to muscle fibre classification
+Software to muscle fiber classification
 
 ## How to run
 

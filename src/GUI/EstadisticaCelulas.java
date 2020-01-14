@@ -916,7 +916,11 @@ public class EstadisticaCelulas extends javax.swing.JFrame {
     
     
     private final void upgradeClusters() {
-        this.lblPoblacion.setText(""+poblacion+" fibras");
+        if(Languages.language == Languages.Language.Spanish){
+            this.lblPoblacion.setText(""+poblacion+" fibras");
+        }else if(Languages.language == Languages.Language.English){
+            this.lblPoblacion.setText(""+poblacion+" fibers");
+        }
         UpgradeList();
         ScrollList.setViewportView(jList1);
         upgradeMin();
